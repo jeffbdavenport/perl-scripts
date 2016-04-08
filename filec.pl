@@ -38,8 +38,6 @@ sub count {
 	  	}
 	  	if($current_count > 50){
 		  	print "$current_count in $path\n";
-	  	} else {
-	  		print "$current_count is too small";
 	  	}
 	  	$current_count = 0;
 	  	closedir $DIR;
