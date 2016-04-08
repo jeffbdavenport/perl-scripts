@@ -19,7 +19,7 @@ count($curpath);
 sub count {
 	  my $path = shift;
 	  if(opendir my $DIR, "$path"){
-	  	print "\nCurrent Dir: $path                                \r";
+	  	print "\rCurrent Dir: $path                                \r";
 		foreach(readdir $DIR) {
 		  	if(m/^\.\.?$/){
 		  		next;
@@ -38,7 +38,7 @@ sub count {
 			}
 	  	}
 	  	if($current_count > 500){
-		  	print "$current_count in $path\n";
+		  	print "$current_count in $path\n\n";
 	  	}
 	  	$current_count = 0;
 	  	closedir $DIR;
