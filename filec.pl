@@ -19,6 +19,7 @@ count($curpath);
 sub count {
 	  my $path = shift;
 	  if(opendir my $DIR, "$path"){
+	  	print "\rCurrent Dir: $path                                \r"
 		foreach(readdir $DIR) {
 		  	if(m/^\.\.?$/){
 		  		next;
