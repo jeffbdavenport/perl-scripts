@@ -6,6 +6,7 @@ use Time::HiRes qw(usleep);
 my $Arg = $ARGV[0];
 my $i = 0; # +1 for the current dir,
 my $d = 0;
+my $current_count = 0;
 my $total = 0;
 my $curpath = ".";
 my $curDir = "~";
@@ -22,6 +23,7 @@ sub count {
 		  	if(m/^\.\.?$/){
 		  		next;
 		  	}
+		  	$current_count++;
 			if( ++$i < 50000 && $i%10000 == 0 && $i != 0 ){
 				print "$i files counted so far\r";
 			}
@@ -34,6 +36,10 @@ sub count {
 				count("$path/$_");
 			}
 	  	}
+	  	if($current_count > 500){
+		  	print "$current_count in $DIR";
+	  	}
+	  	$current_count = 0;
 	  	closedir $DIR;
   	}
 }
