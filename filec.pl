@@ -25,12 +25,7 @@ sub count {
 		  		next;
 		  	}
 		  	$current_count++;
-			if( ++$i < 50000 && $i%10000 == 0 && $i != 0 ){
-				print "$i files counted so far\r";
-			}
-			if( $i%50000 == 0 && $i != 0){
-				print "$i files counted so far\r";
-			}
+		  	$i++;
 			if( -d "$path/$_" ){
 				$total++;
 				usleep(2000);
