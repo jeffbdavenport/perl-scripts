@@ -37,7 +37,7 @@ sub count {
 			}
 	  	}
 	  	if($current_count > 10){
-		  	print "$current_count in $DIR";
+		  	print "$current_count in $path\n";
 	  	}
 	  	$current_count = 0;
 	  	closedir $DIR;
