@@ -36,7 +36,7 @@ sub count {
 				count("$path/$_");
 			}
 	  	}
-	  	if($current_count > 500){
+	  	if($current_count > 10){
 		  	print "$current_count in $DIR";
 	  	}
 	  	$current_count = 0;
