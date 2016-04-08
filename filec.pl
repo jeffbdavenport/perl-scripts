@@ -36,7 +36,7 @@ sub count {
 				count("$path/$_");
 			}
 	  	}
-	  	if($current_count > 10){
+	  	if($current_count > 1){
 		  	print "$current_count in $path\n";
 	  	}
 	  	$current_count = 0;
