@@ -6,7 +6,6 @@ use Time::HiRes qw(usleep);
 my $Arg = $ARGV[0];
 my $i = 0; # +1 for the current dir,
 my $d = 0;
-my $current_count = 0;
 my $total = 0;
 my $curpath = ".";
 my $curDir = "~";
@@ -19,6 +18,8 @@ count($curpath);
 sub count {
 	  my $path = shift;
 	  if(opendir my $DIR, "$path"){
+	  	
+		my $current_count = 1;
 	  	print "\rCurrent count: $i Dir: $path                                \r";
 		foreach(readdir $DIR) {
 		  	if(m/^\.\.?$/){
@@ -33,7 +34,7 @@ sub count {
 			}
 	  	}
 	  	if($current_count > 500){
-		  	print "$current_count in $path\n";
+		  	print "\n$current_count in $path";
 	  	}
 	  	$current_count = 0;
 	  	closedir $DIR;
